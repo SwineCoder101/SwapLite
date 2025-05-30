@@ -1,8 +1,26 @@
 # SwapLite
 A Lite SDK for cross chain swaps between ethereum and solana
 
+## Actors
+1. Taker (aka User or Initiator)
+✅ Off-chain signs the swap order, including:
+What they want to swap
+What they want in return
+hashlock derived from their secret
+Expiration time
+✅ Has custody of the secret.
+✅ Claims tokens on the destination chain (Solana).
 
-Example Flow
+2. Maker (aka Resolver / Executor)
+✅ Responsible for executing the order on-chain:
+Fills the signed order on Ethereum using 1inch Limit Order Protocol → creates EscrowSrc.
+Deploys a corresponding EscrowDst contract (or Anchor PDA) on Solana.
+Deposits their own funds into the Solana escrow.
+✅ Reads the secret from Solana logs once the taker claims.
+✅ Uses the secret to withdraw tokens from Ethereum.
+
+
+## Example Flow
 
 1. User creates a swap intent off-chain
 User wants to swap ETH (Ethereum) for USDC (Solana).
@@ -18,7 +36,6 @@ Fills the order using 1inch Limit Order Protocol.
 This creates an EscrowSrc clone contract holding the user’s ETH, governed by:
 
 hashlock
-
 timelock
 
 safety deposit (in ETH)
@@ -45,3 +62,17 @@ The revealed secret is picked up off-chain.
 Resolver uses withdrawTo(secret) on EscrowSrc to claim ETH on Ethereum.
 
 ✅ Swap is now fully executed across chains, without moving tokens between chains directly.
+
+## Functions to call for Maker
+- create order offchain
+- generate secret
+- create escrow ethereum
+- deposit tokenA ethereum
+- withdraw tokenB solana
+
+## Functions to call for Taker
+- create escrow solana
+- deposit tokenB solana
+- withdraw tokenA on ethereum
+- Cancel for maker
+- Cancel for taker
