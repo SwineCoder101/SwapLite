@@ -47,7 +47,6 @@ contract EscrowDst is Escrow, IEscrowDst {
      */
     function publicWithdraw(bytes32 secret, Immutables calldata immutables)
         external
-        onlyAccessTokenHolder()
         onlyAfter(immutables.timelocks.get(TimelocksLib.Stage.DstPublicWithdrawal))
         onlyBefore(immutables.timelocks.get(TimelocksLib.Stage.DstCancellation))
     {

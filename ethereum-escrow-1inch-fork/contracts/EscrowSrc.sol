@@ -67,7 +67,6 @@ contract EscrowSrc is Escrow, IEscrowSrc {
      */
     function publicWithdraw(bytes32 secret, Immutables calldata immutables)
         external
-        onlyAccessTokenHolder()
         onlyAfter(immutables.timelocks.get(TimelocksLib.Stage.SrcPublicWithdrawal))
         onlyBefore(immutables.timelocks.get(TimelocksLib.Stage.SrcCancellation))
     {
@@ -96,7 +95,6 @@ contract EscrowSrc is Escrow, IEscrowSrc {
      */
     function publicCancel(Immutables calldata immutables)
         external
-        onlyAccessTokenHolder()
         onlyAfter(immutables.timelocks.get(TimelocksLib.Stage.SrcPublicCancellation))
     {
         _cancel(immutables);
