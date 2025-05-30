@@ -1,0 +1,97 @@
+{
+  "params": {
+    "srcChain": 42161,
+    "dstChain": 8453,
+    "srcTokenAddress": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+    "dstTokenAddress": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "walletAddress": "0xd1d1b8f0b6740fad9fb4166eeeefeddb84770938",
+    "enableEstimate": true,
+    "permit": null,
+    "fee": null,
+    "source": "sdk",
+    "isPermit2": false,
+    "amount": "1000000000000000000"
+  },
+  "srcTokenAmount": "1000000000000000000",
+  "dstTokenAmount": "998533363143369685",
+  "presets": {
+    "fast": {
+      "startAmount": "998533313116848178",
+      "secretsCount": 101,
+      "costInDstToken": "24409",
+      "auctionDuration": "180",
+      "startAuctionIn": "17",
+      "initialRateBump": 5002,
+      "auctionStartAmount": "998533313116848178",
+      "auctionEndAmount": "998034096461797987",
+      "points": [],
+      "gasCostInfo": {},
+      "exclusiveResolver": null,
+      "allowPartialFills": true,
+      "allowMultipleFills": true
+    },
+    "medium": {
+      "startAmount": "998533313116848178",
+      "secretsCount": 101,
+      "costInDstToken": "24409",
+      "auctionDuration": "360",
+      "startAuctionIn": "17",
+      "initialRateBump": 5002,
+      "auctionStartAmount": "998533313116848178",
+      "auctionEndAmount": "998034096461797987",
+      "points": [],
+      "gasCostInfo": {},
+      "exclusiveResolver": null,
+      "allowPartialFills": true,
+      "allowMultipleFills": true
+    },
+    "slow": {
+      "startAmount": "998533313116848178",
+      "secretsCount": 101,
+      "costInDstToken": "24409",
+      "auctionDuration": "600",
+      "startAuctionIn": "17",
+      "initialRateBump": 5002,
+      "auctionStartAmount": "998533313116848178",
+      "auctionEndAmount": "998034096461797987",
+      "points": [],
+      "gasCostInfo": {},
+      "exclusiveResolver": null,
+      "allowPartialFills": true,
+      "allowMultipleFills": true
+    },
+    "custom": null
+  },
+  "timeLocks": {
+    "srcWithdrawal": 180,
+    "srcPublicWithdrawal": 780,
+    "srcCancellation": 936,
+    "srcPublicCancellation": 1056,
+    "dstWithdrawal": 180,
+    "dstPublicWithdrawal": 600,
+    "dstCancellation": 720
+  },
+  "srcSafetyDeposit": "6268687740000",
+  "dstSafetyDeposit": "310071300000",
+  "prices": {
+    "usd": {
+      "srcToken": "0.999859416581038",
+      "dstToken": "1.0008273371324647"
+    }
+  },
+  "volume": {
+    "usd": {
+      "srcToken": "999859416581.04",
+      "dstToken": "999359486872.73"
+    }
+  },
+  "quoteId": "c590d91b-0196-4443-a555-dfc22bc241a8",
+  "whitelist": [
+    "0x33b41fe18d3a39046ad672f8a0c8c415454f629c",
+    "0xd06298edb2e694b1266bf0fc4b2dbe711e518acb"
+  ],
+  "recommendedPreset": "fast",
+  "slippage": 0.05,
+  "srcEscrowFactory": "0xa7bcb4eac8964306f9e3764f67db6a7af6ddf99a",
+  "dstEscrowFactory": "0xa7bcb4eac8964306f9e3764f67db6a7af6ddf99a"
+} 
