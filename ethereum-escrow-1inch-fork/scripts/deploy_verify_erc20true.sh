@@ -4,28 +4,24 @@
 source .env
 
 # Check if required environment variables are set
-if [ -z "$DEPLOYER_PRIVATE_KEY" ]; then
-    echo "Error: DEPLOYER_PRIVATE_KEY is not set in .env file"
+if [ -z "$ETH_PRIVATE_KEY" ]; then
+    echo "Error: ETH_PRIVATE_KEY is not set in .env file"
     exit 1
 fi
 
-if [ -z "$RPC_URL" ]; then
+if [ -z "$FLOW_RPC_URL" ]; then
     echo "Error: RPC_URL is not set in .env file"
     exit 1
 fi
 
-if [ -z "$BLOCKSCOUT_API_KEY" ]; then
-    echo "Error: BLOCKSCOUT_API_KEY is not set in .env file"
-    exit 1
-fi
 
 # Deploy the contract using forge script
 echo "Deploying ERC20True contract..."
 forge script script/DeployERC20True.s.sol:DeployERC20True \
-    --rpc-url $RPC_URL \
+    --rpc-url $FLOW_RPC_URL \
+    --private-key $ETH_PRIVATE_KEY \
     --broadcast \
     --verify \
-    --etherscan-api-key $BLOCKSCOUT_API_KEY \
     --verifier-url https://blockscout.com/api \
     --verifier blockscout \
     -vvvv

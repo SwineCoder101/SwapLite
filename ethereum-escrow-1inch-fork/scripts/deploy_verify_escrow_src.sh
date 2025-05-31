@@ -4,8 +4,8 @@
 source .env
 
 # Check if required environment variables are set
-if [ -z "$DEPLOYER_PRIVATE_KEY" ]; then
-    echo "Error: DEPLOYER_PRIVATE_KEY is not set in .env file"
+if [ -z "$ETH_PRIVATE_KEY" ]; then
+    echo "Error: ETH_PRIVATE_KEY is not set in .env file"
     exit 1
 fi
 
@@ -18,9 +18,9 @@ fi
 echo "Deploying EscrowSrc contract..."
 forge script script/DeployEscrowSrc.s.sol:DeployEscrowSrc \
     --rpc-url $FLOW_RPC_URL \
+    --private-key $ETH_PRIVATE_KEY \
     --broadcast \
     --verify \
-    --etherscan-api-key $FLOWSCAN_API_KEY \
     --verifier-url https://blockscout.com/flow/api \
     --verifier blockscout \
     -vvvv

@@ -22,6 +22,6 @@ contract DeployEscrowSrc is Script {
         EscrowSrc escrow = new EscrowSrc(RESCUE_DELAY, ACCESS_TOKEN);
         vm.stopBroadcast();
 
-        console.log("Escrow Factory deployed at: ", address(escrowFactory));
+        console.log("Escrow Factory deployed at: ", address(escrow));
     }
 }

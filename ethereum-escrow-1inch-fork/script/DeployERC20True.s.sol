@@ -10,10 +10,8 @@ import { console } from "forge-std/console.sol";
 
 contract DeployERC20True is Script {
     function run() external {
-        address deployer = vm.envAddress("DEPLOYER_ADDRESS");
-        uint256 deployerPK = vm.envUint("DEPLOYER_PRIVATE_KEY");
 
-        vm.startBroadcast(deployerPK);
+        vm.startBroadcast();
         ERC20True token = new ERC20True();
         vm.stopBroadcast();
 

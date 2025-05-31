@@ -20,5 +20,6 @@ fi
   --rpc-url https://testnet.evm.nodes.onflow.org/ \
   --verifier blockscout \
   --verifier-url 'https://evm-testnet.flowscan.io/api/' \
-  0x52A42530BE1d23f7753446461c4A214683818eB8 \
-  ./contracts/zkSync/EscrowFactoryZkSync.sol:EscrowFactoryZkSync
+  0x2Da2d32ECdcB7c89B0fC435625b1052cDDae2D5e \
+  ./contracts/EscrowSrc.sol:EscrowSrc
+#   ./contracts/zkSync/EscrowFactoryZkSync.sol:EscrowFactoryZkSync
