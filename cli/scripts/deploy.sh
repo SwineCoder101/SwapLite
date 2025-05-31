@@ -10,8 +10,6 @@ else
     exit 1
 fi
 
-echo "Deploying escrow factory for $1"
-
 # Define the chain configurations
 typeset -A chains
 chains["mainnet"]="$MAINNET_RPC_URL"
@@ -28,35 +26,48 @@ chains["sonic"]="$SONIC_RPC_URL"
 chains["unichain"]="$UNICHAIN_RPC_URL"
 chains["flow"]="$FLOW_RPC_URL"
 
+# Check if chain argument is provided
+if [ -z "$1" ]; then
+    echo "Please provide a chain name"
+    echo "Available chains: ${(k)chains}"
+    exit 1
+fi
+
 rpc_url="${chains["$1"]}"
 if [ -z "$rpc_url" ]; then
     echo "Chain not found"
+    echo "Available chains: ${(k)chains}"
     exit 1
 fi
-echo "Provided chain: $1"
+
+echo "Deploying to chain: $1"
 echo "RPC URL: $rpc_url"
+
+# Check if keystore is provided
+if [ -z "$2" ]; then
+    echo "Please provide a keystore path"
+    echo "Usage: ./deploy.sh <chain> <keystore>"
+    exit 1
+fi
 
 keystore="$HOME/.foundry/keystores/$2"
 echo "Keystore: $keystore"
 if [ -e "$keystore" ]; then
-    echo "Keystore provided"
+    echo "Keystore found"
 else
-    echo "Keystore not provided"
+    echo "Keystore not found at: $keystore"
     exit 1
 fi
 
+# Build the project first
+echo "Building project..."
+npm run build
+
+# Deploy based on chain type
 if [ "$1" = "zksync" ]; then
+    echo "Deploying to zkSync..."
     forge script script/DeployEscrowFactoryZkSync.s.sol --zksync --fork-url $rpc_url --keystore $keystore --broadcast -vvvv
 else
-    # forge script script/DeployEscrowFactory.s.sol --fork-url $rpc_url --private-key $ETH_PRIVATE_KEY --broadcast -vvvv
-  forge script script/DeployEscrowFactory.s.sol:DeployEscrowFactory \
-    --rpc-url $rpc_url \
-    --private-key $ETH_PRIVATE_KEY \
-    --broadcast \
-    --verify \
-    --verifier blockscout \
-    --legacy \
-    --verifier-url $VERIFIER_URL_BLOCKSCOUT \
-    --skip-simulation \
-
-fi
+    echo "Deploying to $1..."
+    forge script script/DeployEscrowFactory.s.sol --fork-url $rpc_url --keystore $keystore --broadcast -vvvv
+fi 
