@@ -60,7 +60,6 @@ contract EscrowSrc is Escrow, IEscrowSrc {
     }
 
     function deposit(uint256 amount, Immutables calldata immutables) external {
-        onlyMaker(immutables);
         IERC20(immutables.token.get()).safeTransferFrom(msg.sender, address(this), amount);
     }
 
