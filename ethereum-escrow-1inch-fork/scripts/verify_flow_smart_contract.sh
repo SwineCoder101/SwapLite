@@ -16,7 +16,6 @@ fi
 #   --verifier blockscout \
 #   --verifier-url $VERIFIER_URL_BLOCKSCOUT
 
-
   forge verify-contract \
   --rpc-url https://testnet.evm.nodes.onflow.org/ \
   --verifier blockscout \

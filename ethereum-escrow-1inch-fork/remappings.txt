@@ -4,3 +4,4 @@
 solidity-utils/=lib/solidity-utils/
 limit-order-protocol/=lib/limit-order-protocol/
 limit-order-settlement/=lib/limit-order-settlement/
+@pythnetwork/pyth-sdk-solidity/=node_modules/@pythnetwork/pyth-sdk-solidity

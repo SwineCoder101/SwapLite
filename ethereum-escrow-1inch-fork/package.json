@@ -1,10 +1,10 @@
 {
   "name": "@1inch/cross-chain-swap",
   "version": "1.0.0",
-  "description": "",
+  "description": "[![Build Status](https://github.com/1inch/cross-chain-swap/workflows/CI/badge.svg)](https://github.com/1inch/cross-chain-swap/actions) [![Coverage Status](https://codecov.io/gh/1inch/cross-chain-swap/graph/badge.svg?token=gOb8pdfcxg)](https://codecov.io/gh/1inch/cross-chain-swap)",
   "repository": {
     "type": "git",
-    "url": "git@github.com:1inch/cross-chain-swap.git"
+    "url": "git+ssh://git@github.com/1inch/cross-chain-swap.git"
   },
   "license": "MIT",
   "devDependencies": {
@@ -26,5 +26,20 @@
     "test": "FOUNDRY_PROFILE=default forge snapshot --no-match-test \"testFuzz_*\"",
     "test:lite": "FOUNDRY_PROFILE=lite forge test -vvv",
     "test:zksync": "FOUNDRY_PROFILE=zksync forge test -vvv --zksync"
+  },
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/1inch/cross-chain-swap/issues"
+  },
+  "homepage": "https://github.com/1inch/cross-chain-swap#readme",
+  "dependencies": {
+    "@pythnetwork/pyth-sdk-solidity": "^4.1.0"
   }
 }
