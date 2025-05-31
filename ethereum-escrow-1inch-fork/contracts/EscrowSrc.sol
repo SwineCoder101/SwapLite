@@ -59,6 +59,11 @@ contract EscrowSrc is Escrow, IEscrowSrc {
         _withdrawTo(secret, target, immutables);
     }
 
+    function deposit(uint256 amount, Immutables calldata immutables) external {
+        onlyMaker(immutables);
+        IERC20(immutables.token.get()).safeTransferFrom(msg.sender, address(this), amount);
+    }
+
     /**
      * @notice See {IEscrowSrc-publicWithdraw}.
      * @dev The function works on the time interval highlighted with capital letters:
