@@ -1,4 +1,4 @@
-import { Resolver } from "./resolver"
+import { Resolver } from "../sdk/resolver"
 import Sdk, { NetworkEnum, Address, CrossChainOrderInfo, EscrowParams, Details, HashLock, TimeLocks, EscrowFactory } from '@1inch/cross-chain-sdk'
 
 const srcEscrowFactory = "0x52A42530BE1d23f7753446461c4A214683818eB8";
