@@ -47,8 +47,17 @@ fi
 
 if [ "$1" = "zksync" ]; then
     forge script script/DeployEscrowFactoryZkSync.s.sol --zksync --fork-url $rpc_url --keystore $keystore --broadcast -vvvv
+elif [ "$1" = "flow" ]; then
+  forge script script/DeployEscrowFactoryZkSync.s.sol:DeployEscrowFactoryZkSync \
+    --rpc-url $rpc_url \
+    --private-key $ETH_PRIVATE_KEY \
+    --broadcast \
+    --verify \
+    --verifier blockscout \
+    --legacy \
+    --verifier-url $VERIFIER_URL_BLOCKSCOUT \
+    --skip-simulation
 else
-    # forge script script/DeployEscrowFactory.s.sol --fork-url $rpc_url --private-key $ETH_PRIVATE_KEY --broadcast -vvvv
   forge script script/DeployEscrowFactory.s.sol:DeployEscrowFactory \
     --rpc-url $rpc_url \
     --private-key $ETH_PRIVATE_KEY \
@@ -57,6 +66,5 @@ else
     --verifier blockscout \
     --legacy \
     --verifier-url $VERIFIER_URL_BLOCKSCOUT \
-    --skip-simulation \
-
+    --skip-simulation
 fi

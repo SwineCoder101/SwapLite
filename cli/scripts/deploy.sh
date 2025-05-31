@@ -67,6 +67,9 @@ npm run build
 if [ "$1" = "zksync" ]; then
     echo "Deploying to zkSync..."
     forge script script/DeployEscrowFactoryZkSync.s.sol --zksync --fork-url $rpc_url --keystore $keystore --broadcast -vvvv
+elif [ "$1" = "flow" ]; then
+    echo "Deploying to Flow..."
+    forge script script/DeployEscrowFactoryFlow.s.sol --flow --fork-url $rpc_url --keystore $keystore --broadcast -vvvv
 else
     echo "Deploying to $1..."
     forge script script/DeployEscrowFactory.s.sol --fork-url $rpc_url --keystore $keystore --broadcast -vvvv
