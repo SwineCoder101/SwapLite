@@ -1,3 +1,0 @@
-[submodule "ethereum-escrow-1inch-fork/lib/forge-multibaas"]
-	path = ethereum-escrow-1inch-fork/lib/forge-multibaas
-	url = https://github.com/curvegrid/forge-multibaas
