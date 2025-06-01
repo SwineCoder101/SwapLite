@@ -38,7 +38,7 @@ This creates an EscrowSrc clone contract holding the user’s ETH, governed by:
 hashlock
 timelock
 
-safety deposit (in ETH)
+safety deposit (in FLOW)
 
 🔒 On Solana (Destination Chain):
 Deploys a corresponding EscrowDst (via PDA or clone).
@@ -63,6 +63,20 @@ Resolver uses withdrawTo(secret) on EscrowSrc to claim ETH on Ethereum.
 
 ✅ Swap is now fully executed across chains, without moving tokens between chains directly.
 
+```
+sequenceDiagram
+    participant M as Maker (Flow)
+    participant F as Flow Escrow
+    participant T as Taker (Solana)
+    participant S as Solana Escrow
+
+    M->>F: 1. Deposit tokens (with hash time lock)
+    T->>S: 2. Deposit tokens to Swap (with hash time lock)
+    T->>F: 3. Withdraw using secret
+    M->>S: 4. Withdraw using secret
+```
+
+
 ## Functions to call for Maker
 - create order offchain
 - generate secret
@@ -76,3 +90,5 @@ Resolver uses withdrawTo(secret) on EscrowSrc to claim ETH on Ethereum.
 - withdraw tokenA on ethereum
 - Cancel for maker
 - Cancel for taker
+
+The Hash Time lock is implemented

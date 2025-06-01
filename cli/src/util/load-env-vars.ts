@@ -13,6 +13,12 @@ export interface EnvVars {
   WALLET_ADDRESS?: string;
   RECIPIENT_ADDRESS?: string;
   SOLANA_RPC_URL?: string;
+  SOLANA_ESCROW_PROGRAM_ID?: string;
+  TAKER_PRIVATE_KEY_SOLANA?: string;
+  MAKER_ADDRESS_SOLANA?: string;
+  TOKEN_A_ADDRESS_SOLANA?: string;
+  TOKEN_B_ADDRESS_SOLANA?: string;
+  TAKER_PRIVATE_KEY_FLOW?: string;
 }
 
 export interface ChainConfig {
