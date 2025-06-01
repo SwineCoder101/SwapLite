@@ -12,6 +12,7 @@ export interface EnvVars {
   TAKER_ADDRESS?: string;
   WALLET_ADDRESS?: string;
   RECIPIENT_ADDRESS?: string;
+  SOLANA_RPC_URL?: string;
 }
 
 export interface ChainConfig {
