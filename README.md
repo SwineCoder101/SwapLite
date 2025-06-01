@@ -1,5 +1,5 @@
 # SwapLite
-A Lite SDK for cross chain swaps between ethereum and solana
+A Lite SDK for cross chain swaps between ethereum and solana, for traders and developers
 
 This Repo is split into 4 main packages
 - cli contains ts client code for interacting with the blockchains
