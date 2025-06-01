@@ -19,7 +19,7 @@ export class EscrowClient {
   }
 
   async deriveEscrowPDA(maker: PublicKey, seed: BN): Promise<[PublicKey, number]> {
-    return await PublicKey.findProgramAddress(
+    return await PublicKey.findProgramAddressSync(
       [Buffer.from("escrow"), maker.toBuffer(), seed.toArrayLike(Buffer, "le", 8)],
       this.program.programId
     );
