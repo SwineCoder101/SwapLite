@@ -1,2 +1,3 @@
 ./cli/.env
 ./cli/eth-oxford-testnet-wallet.json
+cli/.env
