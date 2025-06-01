@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { createWalletClient, http, parseEther, parseAbi, encodeFunctionData, zeroAddress, Hex, Chain } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
-import { Immutables } from '../sdk/escrow-src-client';
+import { Immutables } from '../sdk/flow-escrow-client';
 import { abi as erc20Abi } from '../abi/ERC20True.json'; // standard ERC20 ABI
 import { abi as escrowAbi } from '../abi/EscrowSrc.json';
 import { Address } from 'viem';

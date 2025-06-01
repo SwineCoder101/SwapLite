@@ -14,7 +14,7 @@ export type Immutables = {
   timelocks: bigint;
 };
 
-export class EscrowSrcClient {
+export class FlowEscrowClient {
   publicClient;
   walletClient;
   account;

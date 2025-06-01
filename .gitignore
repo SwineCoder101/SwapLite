@@ -1,3 +1,3 @@
-./cli/.env
 ./cli/eth-oxford-testnet-wallet.json
 cli/.env
+cli/*-keypair.json

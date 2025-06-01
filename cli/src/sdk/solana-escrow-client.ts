@@ -8,7 +8,7 @@ import {
 import { PublicKey, SystemProgram } from "@solana/web3.js";
 import { Escrow } from "../idl/escrow";
 
-export class EscrowClient {
+export class SolanaEscrowClient {
   readonly program: Program<Escrow>;
   readonly provider: anchor.AnchorProvider;
 
