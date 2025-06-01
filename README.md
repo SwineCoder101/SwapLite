@@ -1,6 +1,12 @@
 # SwapLite
 A Lite SDK for cross chain swaps between ethereum and solana
 
+This Repo is split into 4 main packages
+- cli contains ts client code for interacting with the blockchains
+- escrow a minimilistic solana escrow
+- solidity escrow factory contracts, edited to decouple orders from source escrow
+- solana escrow contracts, edited to implement Hash Time locks
+
 ## Actors
 1. Taker (aka User or Initiator)
 ✅ Off-chain signs the swap order, including:
